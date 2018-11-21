@@ -21,6 +21,12 @@ public:
 	virtual int execute (void);
 
 	virtual void set_key (int key);
+
+	virtual void accept(Expr_Node_Visitor & v);
+
+protected:
+
+	Expr_Node * parent_;
 };
 
 #endif

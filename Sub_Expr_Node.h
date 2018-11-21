@@ -14,11 +14,13 @@ class Sub_Expr_Node : public Binary_Expr_Node
 {
 public:
 
-	Sub_Expr_Node(void);
+	Sub_Expr_Node(Expr_Node & n1, Expr_Node & n2);
 
 	virtual ~Sub_Expr_Node(void);
 
 	int evaluate (int num1, int num2);
+
+	virtual void accept(Expr_Node_Visitor & v);
 };
 
 #endif

@@ -25,6 +25,8 @@ public:
 
 	virtual void set_key(int key);
 
+	virtual void accept(Expr_Node_Visitor & v)=0;
+
 protected:
 
 	Expr_Node * right_;
