@@ -10,6 +10,30 @@ project(assignment4){
 
 	Header_Files{
 		Expr_Node.h
+		Add_Expr_Node.h
+		Binary_Expr_Node.h
+		Div_Expr_Node.h
+		Eval_Expr_Tree.h
+		Expr_Builder.h
+		Expr_Node.h
+		Expr_Node_Visitor.h
+		Expr_Tree_Builder.h
+		Mod_Expr_Node.h
+		Mul_Expr_Node.h
+		Number_Expr_Node.h
+		Sub_Expr_Node.h
+	}
 
+	Source_Files{
+		Eval_Expr_Tree.cpp
+		Binary_Expr_Node.cpp
+		Add_Expr_Node.cpp
+		Div_Expr_Node.cpp
+		Sub_Expr_Node.cpp
+		Mul_Expr_Node.cpp
+		Mod_Expr_Node.cpp
+		Number_Expr_Node.cpp
+		Expr_Tree_Builder.cpp
+		Calculator.cpp
 	}
 }
