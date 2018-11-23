@@ -14,6 +14,8 @@ class Add_Expr_Node : public Binary_Expr_Node
 {
 public:
 
+	Add_Expr_Node(void);
+
 	Add_Expr_Node(Expr_Node & n1, Expr_Node & n2);
 
 	virtual ~Add_Expr_Node(void);

@@ -1,0 +1,15 @@
+
+
+project(assignment4){
+	exename=assignment4
+	install= .
+
+	specific(make, gnuace){
+		compile_flags += -std=c++11
+	}
+
+	Header_Files{
+		Expr_Node.h
+
+	}
+}
