@@ -21,7 +21,7 @@ Eval_Expr_Tree::~Eval_Expr_Tree(void)
 {
 
 }
-
+//for some reason only this method is causing an error because it doesn't match any expression in Eval_Expr_Tree, but I don't understand why and why only this one.
 void Eval_Expr_Tree::Visit_Add_Node(const Add_Expr_Node & node)
 {
 	node->key=(*node).left_->key + (*node).right_->key;	

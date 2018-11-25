@@ -12,6 +12,7 @@
 #include "Mod_Expr_Node.h"
 #include "Number_Expr_Node.h"
 
+//One thing I am confused on is whether the Tree-Builder is supposed to determine how it moves throughout the tree and evaluates the nodes or whether the compiste method is supposed to define and determine that.
 Expr_Tree_Builder::Expr_Tree_Builder (void)
 {
 
@@ -36,11 +37,13 @@ Expr_Node Expr_Tree_Builder::start_expression (void)
 
 void Expr_Tree_Builder::build_number (int n)
 {
+	//cannot convert n1 from Expr_Node to Number Node even though they should be the same
 	n1=new Number_Expr_Node(n);
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
 {
+	//for some reason it is expecting a primary expression before void for all of these build methods.
 	op=new Add_Expr_Node(void);
 }
 
