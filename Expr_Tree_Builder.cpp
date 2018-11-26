@@ -23,11 +23,12 @@ Expr_Tree_Builder::~Expr_Tree_Builder(void)
 
 }
 
-Expr_Node Expr_Tree_Builder::start_expression (void)
+Expr_Node* Expr_Tree_Builder::start_expression (void)
 {
 	Expr_Node* n1=0;
 	Expr_Node* n2=0;
 	Expr_Node* op=0;
+	//does not recognize Expr_Node* parent_ from Number_Expr_Node and  left_ and right_ from Binary_Expr_Node
 	(*n1).parent_=&op;
 	(*n2).parent_=&op;
 	(*op).left_=&n1;
@@ -43,28 +44,28 @@ void Expr_Tree_Builder::build_number (int n)
 
 void Expr_Tree_Builder::build_add_operator(void)
 {
-	//for some reason it is expecting a primary expression before void for all of these build methods.
-	op=new Add_Expr_Node(void);
+	//for some reason it is saying there is no matching function call for Name_Expr_Node(Expr_Node**,Expr_Node**) 
+	op=new Add_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_sub_operator(void)
 {
-	op=new Sub_Expr_Node(void);
+	op=new Sub_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_mul_operator(void)
 {
-	op=new Mul_Expr_Node(void);
+	op=new Mul_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_div_operator(void)
 {
-	op=new Div_Expr_Node(void);
+	op=new Div_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_mod_operator(void)
 {
-	op=new Mod_Expr_Node(void);
+	op=new Mod_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_parenthesis(void)
