@@ -13,8 +13,6 @@ class Expr_Node
 {
 public:
 
-	virtual ~Expr_Node(void);
-
 	virtual int execute (void)=0;
 
 	virtual void accept(Expr_Node_Visitor & v)=0;
@@ -22,10 +20,6 @@ public:
 	virtual int get_key(void)=0;
 
 	virtual void set_key(int key)=0;
-
-protected:
-
-	int key_;
 
 };
 

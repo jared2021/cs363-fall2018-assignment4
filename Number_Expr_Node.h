@@ -27,6 +27,7 @@ public:
 protected:
 
 	Expr_Node * parent_;
+	int key_;
 };
 
 #endif

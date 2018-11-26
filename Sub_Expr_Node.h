@@ -24,6 +24,7 @@ public:
 
 	//It also says that Expr_Node_Visitor isn't defined when I included that class in Expr_Node which should be included in all of these classes.
 	virtual void accept(Expr_Node_Visitor & v);
+
 };
 
 #endif

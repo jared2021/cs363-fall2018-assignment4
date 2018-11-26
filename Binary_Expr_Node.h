@@ -32,6 +32,7 @@ protected:
 	Expr_Node * right_;
 	Expr_Node * left_;
 	Expr_Node * parent_;
+	int key_;
 };
 
 #endif
