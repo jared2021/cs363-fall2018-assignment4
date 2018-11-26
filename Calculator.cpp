@@ -26,45 +26,47 @@ int main()
 	std::getline(std::cin,infix);
 	while(infix!=exit)
 	{
-		Expr_Tree_Builder* build= new Expr_Tree Builder();
-		Expr_Node start=build.start_expression();
+		//for some reason it is saying Expr_Tree_Builder is an abstract class so I cannot allocate it. 
+		Expr_Tree_Builder* build= new Expr_Tree_Builder();
+		Expr_Node* start=build->start_expression();
 		std::istringstream input(token);
 		while(!input.eof())
 		{
 			input>>token;
 			if(token=="+")
 			{
-				build.build_add_operator();
+				build->build_add_operator();
 			}
 			else if(token=="-")
 			{
-				build.build_sub_operator();
+				build->build_sub_operator();
 			}
 			else if(token=="*")
 			{
-				build.build_mul_operator();
+				build->build_mul_operator();
 			}
 			else if(token=="/")
 			{
-				build.build_div_operator();
+				build->build_div_operator();
 			}
 			else if(token=="%")
 			{
-				build.build_mod_operator();
+				build->build_mod_operator();
 			}
 			else if(token=="(")
 			{
-				build.build_parenthesis();
+				build->build_parenthesis();
 			}
 			else 
 			{
 				int placeholder;
+				// These two lines won't work for some reason.
 				std::istringsteam converter(token);
 				converter>>placeholder;
-				build.build_number_operator(placeholder);
+				build->build_number(placeholder);
 			}
 		}
-		Expr_Node * expr_tree= &start;
+		Expr_Node * expr_tree= start;
 		Eval_Expr_Tree eval;
 		expr_tree->accept(eval);
 		int result= eval.result();
