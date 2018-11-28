@@ -38,33 +38,51 @@ Expr_Node* Expr_Tree_Builder::start_expression (void)
 
 void Expr_Tree_Builder::build_number (int n)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+  
 	//cannot convert n1 from Expr_Node to Number Node even though they should be the same
 	n1=new Number_Expr_Node(n);
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+
 	//for some reason it is saying there is no matching function call for Name_Expr_Node(Expr_Node**,Expr_Node**) 
 	op=new Add_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_sub_operator(void)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+
 	op=new Sub_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_mul_operator(void)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+
 	op=new Mul_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_div_operator(void)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+
 	op=new Div_Expr_Node(&n1, &n2);
 }
 
 void Expr_Tree_Builder::build_mod_operator(void)
 {
+  // COMMENT You are creating the nodes, but it seems you are not
+  // using the node to construct the tree.
+
 	op=new Mod_Expr_Node(&n1, &n2);
 }
 
