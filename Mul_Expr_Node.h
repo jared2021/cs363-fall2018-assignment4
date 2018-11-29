@@ -14,11 +14,15 @@ class Mul_Expr_Node : public Binary_Expr_Node
 {
 public:
 
-	Mul_Expr_Node(Expr_Node & n1, Expr_Node & n2);
+	Mul_Expr_Node(void);
 
 	~Mul_Expr_Node(void);
 
 	virtual int evaluate (int num1, int num2);
+
+	virtual void set_left(Expr_Node & node);
+
+	virtual void set_right(Expr_Node & node);
 
 	virtual void accept (Expr_Node_Visitor & v);
 };

@@ -29,8 +29,11 @@ void Eval_Expr_Tree::Visit_Add_Node(const Add_Expr_Node & node)
   // of evaluate. You are to visit the left and right node via the
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
+  // RESPONSE: Now visiting left and right node via the accept method.
   
-	node->key_= node.left_->key_ + node.right_->key_;	
+	int n1=left_->accept(*this);
+	int n2=right_->accept(*this);
+	node.evaluate(n1,n2);
 }
 
 void Eval_Expr_Tree::Visit_Sub_Node(const Sub_Expr_Node & node)
@@ -40,8 +43,11 @@ void Eval_Expr_Tree::Visit_Sub_Node(const Sub_Expr_Node & node)
   // of evaluate. You are to visit the left and right node via the
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
+  // RESPONSE: Now visiting left and right node via accept method.
   
-	node.key_=node.left_->key_ - node.right_->key_;
+	int n1=left_->accept(*this);
+	int n2=right_->accept(*this);
+	node.evaluate(n1,n2);
 }
 
 void Eval_Expr_Tree::Visit_Mul_Node(const Mul_Expr_Node & node)
@@ -51,8 +57,11 @@ void Eval_Expr_Tree::Visit_Mul_Node(const Mul_Expr_Node & node)
   // of evaluate. You are to visit the left and right node via the
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
+  // RESPONSE: Now visiting left and right node via the accept method.
   
-	node.key_=node.left_->key_ * node.right_->key_;
+	int n1=left_->accept(*this);
+	int n2=right_->accept(*this);
+	node.evaluate(n1,n2);
 }
 
 void Eval_Expr_Tree::Visit_Div_Node(const Div_Expr_Node & node)
@@ -62,6 +71,7 @@ void Eval_Expr_Tree::Visit_Div_Node(const Div_Expr_Node & node)
   // of evaluate. You are to visit the left and right node via the
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
+  // RESPONSE: Now visiting left and right node via accept method.
   
 	if((node.right_->key_==0))
 	{
@@ -69,7 +79,9 @@ void Eval_Expr_Tree::Visit_Div_Node(const Div_Expr_Node & node)
 	}
 	else
 	{
-		node.key_=node.left_->key_ / node.right_->key_;
+		int n1=left_->accept(*this);
+		int n2=right_->accept(*this);
+		node.evaluate(n1,,n2);
 	}
 }
 
@@ -80,8 +92,11 @@ void Eval_Expr_Tree::Visit_Mod_Node(const Mod_Expr_Node & node)
   // of evaluate. You are to visit the left and right node via the
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
+  // RESPONSE: Now visiting left and right node via accept method.
   
-	node.key_=node.left_->key_ % node.right_->key_;
+	int n1=left_->accept(*this);
+	int n2=right->accept(*this);
+	node.evaluate(n1,n2);
 }
 
 void Eval_Expr_Tree::Visit_Num_Node(const Number_Expr_Node & node)

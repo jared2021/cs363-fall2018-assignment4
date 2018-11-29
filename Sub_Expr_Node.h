@@ -16,11 +16,15 @@ class Sub_Expr_Node : public Binary_Expr_Node
 public:
 
 	//It also is having a problem with what I'm passing saying it expects a ')' before the '&'.
-	Sub_Expr_Node(Expr_Node & n1, Expr_Node & n2);
+	Sub_Expr_Node(void);
 
 	virtual ~Sub_Expr_Node(void);
 
 	int evaluate (int num1, int num2);
+
+	virtual void set_left(Expr_Node & node);
+
+	virtual void set_right(Expr_Node & node);
 
 	//It also says that Expr_Node_Visitor isn't defined when I included that class in Expr_Node which should be included in all of these classes.
 	virtual void accept(Expr_Node_Visitor & v);

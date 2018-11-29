@@ -25,13 +25,16 @@ public:
 
 	virtual void set_key(int key);
 
+	virtual void set_left(Expr_Node & node)=0;
+
+	virtual void set_right(Expr_Node & node)=0;
+
 	virtual void accept(Expr_Node_Visitor & v)=0;
 
 protected:
 
 	Expr_Node * right_;
 	Expr_Node * left_;
-	Expr_Node * parent_;
 	int key_;
 };
 
