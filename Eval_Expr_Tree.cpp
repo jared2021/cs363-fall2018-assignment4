@@ -21,7 +21,7 @@ Eval_Expr_Tree::~Eval_Expr_Tree(void)
 {
 
 }
-//for some reason only this method is causing an error because it doesn't match any expression in Eval_Expr_Tree, but I don't understand why and why only this one.
+
 void Eval_Expr_Tree::Visit_Add_Node(const Add_Expr_Node & node)
 {
   // COMMENT: You are not using the visitor pattern correctly.
@@ -31,8 +31,8 @@ void Eval_Expr_Tree::Visit_Add_Node(const Add_Expr_Node & node)
   // (e.g., left->accept (*this))
   // RESPONSE: Now visiting left and right node via the accept method.
   
-	int n1=left_->accept(*this);
-	int n2=right_->accept(*this);
+	int n1=node.left_->accept(*this);
+	int n2=node.right_->accept(*this);
 	node.evaluate(n1,n2);
 }
 
@@ -45,8 +45,8 @@ void Eval_Expr_Tree::Visit_Sub_Node(const Sub_Expr_Node & node)
   // (e.g., left->accept (*this))
   // RESPONSE: Now visiting left and right node via accept method.
   
-	int n1=left_->accept(*this);
-	int n2=right_->accept(*this);
+	int n1=node.left_->accept(*this);
+	int n2=node.right_->accept(*this);
 	node.evaluate(n1,n2);
 }
 
@@ -59,8 +59,8 @@ void Eval_Expr_Tree::Visit_Mul_Node(const Mul_Expr_Node & node)
   // (e.g., left->accept (*this))
   // RESPONSE: Now visiting left and right node via the accept method.
   
-	int n1=left_->accept(*this);
-	int n2=right_->accept(*this);
+	int n1=node.left_->accept(*this);
+	int n2=node.right_->accept(*this);
 	node.evaluate(n1,n2);
 }
 
@@ -79,9 +79,9 @@ void Eval_Expr_Tree::Visit_Div_Node(const Div_Expr_Node & node)
 	}
 	else
 	{
-		int n1=left_->accept(*this);
-		int n2=right_->accept(*this);
-		node.evaluate(n1,,n2);
+		int n1=node.left_->accept(*this);
+		int n2=node.right_->accept(*this);
+		node.evaluate(n1,n2);
 	}
 }
 
@@ -94,14 +94,14 @@ void Eval_Expr_Tree::Visit_Mod_Node(const Mod_Expr_Node & node)
   // (e.g., left->accept (*this))
   // RESPONSE: Now visiting left and right node via accept method.
   
-	int n1=left_->accept(*this);
-	int n2=right->accept(*this);
+	int n1=node.left_->accept(*this);
+	int n2=node.right->accept(*this);
 	node.evaluate(n1,n2);
 }
 
-void Eval_Expr_Tree::Visit_Num_Node(const Number_Expr_Node & node)
+int Eval_Expr_Tree::Visit_Num_Node(const Number_Expr_Node & node)
 {
-	node.key_=node.key_;
+	return node.get_key();
 }
 
 int Eval_Expr_Tree::result(void)

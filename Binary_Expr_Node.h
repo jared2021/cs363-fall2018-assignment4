@@ -17,8 +17,6 @@ public:
 
 	virtual ~Binary_Expr_Node (void);
 
-	virtual int execute (void);
-
 	virtual int evaluate(int num1,int num2)=0;
 
 	virtual int get_key(void);
@@ -31,11 +29,9 @@ public:
 
 	virtual void accept(Expr_Node_Visitor & v)=0;
 
-protected:
-
 	Expr_Node * right_;
+
 	Expr_Node * left_;
-	int key_;
 };
 
 #endif

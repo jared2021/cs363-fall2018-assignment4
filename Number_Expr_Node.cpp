@@ -9,17 +9,12 @@
 
 Number_Expr_Node::Number_Expr_Node(int num)
 {
-	set_key(num);
+	key_=num;
 }
 
 Number_Expr_Node::~Number_Expr_Node(void)
 {
 
-}
-
-void Number_Expr_Node::set_key(int key)
-{
-	key_=key;
 }
 
 void Number_Expr_Node::accept (Expr_Node_Visitor & v)

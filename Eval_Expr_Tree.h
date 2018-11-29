@@ -28,7 +28,7 @@ public:
 
 	virtual void Visit_Mod_Node (const Mod_Expr_Node & node);
 
-	virtual void Visit_Num_Node (const Number_Expr_Node & node);
+	virtual int Visit_Num_Node (const Number_Expr_Node & node);
 
 	int result (void);
 

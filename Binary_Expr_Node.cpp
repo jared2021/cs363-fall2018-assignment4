@@ -17,13 +17,6 @@ Binary_Expr_Node::~Binary_Expr_Node(void)
 
 }
 
-int Binary_Expr_Node::execute(void)
-{
-	int n1=(*left_).get_key();
-	int n2=(*right_).get_key();
-	set_key(evaluate(n1,n2));
-}
-
 void Binary_Expr_Node::set_key(int key)
 {
 	key_=key;
