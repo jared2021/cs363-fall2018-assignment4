@@ -8,6 +8,7 @@
 #include "Div_Expr_Node.h"
 #include <iostream>
 Div_Expr_Node::Div_Expr_Node(void)
+:Binary_Expr_Node(1)
 {
 
 }
@@ -17,7 +18,7 @@ Div_Expr_Node::~Div_Expr_Node(void)
 
 }
 
-int Div_Expr_Node::evaluate (int num1, int num2)
+int Div_Expr_Node::evaluate (int num1, int num2)const
 {
 	if(num2==0)
 	{
@@ -30,16 +31,21 @@ int Div_Expr_Node::evaluate (int num1, int num2)
 	}
 }
 
-void Div_Expr_Node::set_left(Expr_Node & node)
+void Div_Expr_Node::set_left(Expr_Node* node)
 {
-	left_=&node;
+	left_=node;
 }
 
-void Div_Expr_Node::set_right(Expr_Node & node)
+void Div_Expr_Node::set_right(Expr_Node* node)
 {
-	right_=&node;
+	right_=node;
 }
 void Div_Expr_Node::accept(Expr_Node_Visitor & v)
 {
 	v.Visit_Div_Node(*this);
+}
+
+int Div_Expr_Node::get_precidence(void)
+{
+	return precidence_;
 }

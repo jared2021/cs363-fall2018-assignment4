@@ -103,7 +103,7 @@ public:
    *
    * @return         Size of the stack.
    */
-  size_t size (void) const;
+  int size (void) const;
 
   /// Remove all elements from the stack.
   void clear (void);

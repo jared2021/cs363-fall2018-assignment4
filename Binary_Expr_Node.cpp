@@ -12,6 +12,11 @@ Binary_Expr_Node::Binary_Expr_Node(void)
 
 }
 
+Binary_Expr_Node::Binary_Expr_Node(int p)
+{
+	precidence_=p;
+}
+
 Binary_Expr_Node::~Binary_Expr_Node(void)
 {
 

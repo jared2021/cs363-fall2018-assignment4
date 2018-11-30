@@ -18,13 +18,15 @@ public:
 
 	virtual ~Div_Expr_Node(void);
 
-	virtual int evaluate (int num1, int num2);
+	virtual int evaluate (int num1, int num2)const;
 
-	virtual void set_left(Expr_Node & node);
+	virtual void set_left(Expr_Node* node);
 
-	virtual void set_right(Expr_Node & node);
+	virtual void set_right(Expr_Node* node);
 
 	virtual void accept(Expr_Node_Visitor & v);
+
+	virtual int get_precidence(void);
 };
 
 #endif

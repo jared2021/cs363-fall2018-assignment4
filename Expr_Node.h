@@ -13,13 +13,9 @@ class Expr_Node
 {
 public:
 
-	virtual int evaluate (int num1,int num2)=0;
-
 	virtual void accept(Expr_Node_Visitor & v)=0;
 
 	virtual int get_key(void)=0;
-
-	virtual void set_key(int key)=0;
 
 protected:
 

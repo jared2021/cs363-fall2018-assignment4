@@ -22,6 +22,7 @@ public:
 
 	virtual void accept(Expr_Node_Visitor & v);
 
+	virtual int get_key(void);
 private:
 	Number_Expr_Node(void);
 };

@@ -21,3 +21,8 @@ void Number_Expr_Node::accept (Expr_Node_Visitor & v)
 {
 	v.Visit_Num_Node(*this);
 }
+
+int Number_Expr_Node::get_key()
+{
+	return key_;
+}

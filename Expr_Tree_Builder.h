@@ -8,7 +8,9 @@
 #ifndef EXPR_TREE_BUILDER_H_
 #define EXPR_TREE_BUILDER_H_
 #include "Expr_Node.h"
+#include "Binary_Expr_Node.h"
 #include "Expr_Builder.h"
+#include "Stack.h"
 
 class Expr_Tree_Builder : public Expr_Builder
 {
@@ -38,11 +40,19 @@ public:
 
 	virtual void build_parenthesis(void);
 
+	virtual void check_precidence(Array <Binary_Expr_Node*> nodes, int iterator);
+
 private:
 
 	Expr_Node* n1;
-	Expr_Node* n2;
-	Expr_Node* op;
+	Binary_Expr_Node* op;
+	Array <Binary_Expr_Node*> nodes;
+	Array <Expr_Node*> p_nodes;
+	Stack <Expr_Node*> tree;
+	Stack <Expr_Node*> p_tree;
+	int iterator;
+	int p_iterator;
+	bool parenthesis_;
 };
 
 #endif

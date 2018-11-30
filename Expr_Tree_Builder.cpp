@@ -14,6 +14,8 @@
 
 //One thing I am confused on is whether the Tree-Builder is supposed to determine how it moves throughout the tree and evaluates the nodes or whether the compiste method is supposed to define and determine that.
 Expr_Tree_Builder::Expr_Tree_Builder (void)
+:iterator(0),
+p_iterator(0)
 {
 
 }
@@ -25,8 +27,8 @@ Expr_Tree_Builder::~Expr_Tree_Builder(void)
 
 void Expr_Tree_Builder::start_expression (void)
 {
-	Expr_Node* n1=0;
-	Expr_Node* op=0;
+	n1=0;
+	op=0;
 }
 
 void Expr_Tree_Builder::build_number (int n)
@@ -35,6 +37,13 @@ void Expr_Tree_Builder::build_number (int n)
   // using the node to construct the tree.
   
 	n1=new Number_Expr_Node(n);
+	tree.push(n1);
+	if(tree.size()==2)
+	{
+		nodes[iterator-1]->set_right(tree.pop());
+		nodes[iterator-1]->set_left(tree.pop());
+		tree.push(nodes[iterator-1]);
+	}
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
@@ -42,16 +51,35 @@ void Expr_Tree_Builder::build_add_operator(void)
   // COMMENT You are creating the nodes, but it seems you are not
   // using the node to construct the tree.
 
-	//for some reason it is saying there is no matching function call for Name_Expr_Node(Expr_Node**,Expr_Node**) 
+	//for some reason it is saying there is no matching function call for Name_Expr_Node(Expr_Node**,Expr_Node**)
 	op=new Add_Expr_Node();
+	if(!parenthesis_)
+	{
+		nodes.set(iterator, op);
+		iterator=iterator+1;
+	}
+	else
+	{
+		p_nodes.set(p_iterator, op);
+		p_iterator=p_iterator+1;
+	}
 }
-
 void Expr_Tree_Builder::build_sub_operator(void)
 {
   // COMMENT You are creating the nodes, but it seems you are not
   // using the node to construct the tree.
 
 	op=new Sub_Expr_Node();
+	if(!parenthesis_)
+	{
+		nodes.set(iterator, op);
+		iterator=iterator+1;
+	}
+	else
+	{
+		p_nodes.set(p_iterator, op);
+		p_iterator=p_iterator +1;
+	}
 }
 
 void Expr_Tree_Builder::build_mul_operator(void)
@@ -60,14 +88,33 @@ void Expr_Tree_Builder::build_mul_operator(void)
   // using the node to construct the tree.
 
 	op=new Mul_Expr_Node();
+	if(!parenthesis_)
+	{
+		nodes.set(iterator, op);
+		iterator=iterator+1;
+	}
+	else
+	{
+		p_nodes.set(p_iterator, op);
+		p_iterator=p_iterator +1;
+	}
 }
-
 void Expr_Tree_Builder::build_div_operator(void)
 {
   // COMMENT You are creating the nodes, but it seems you are not
   // using the node to construct the tree.
 
 	op=new Div_Expr_Node();
+	if(!parenthesis_)
+	{
+		nodes.set(iterator, op);
+		iterator=iterator+1;
+	}
+	else
+	{
+		p_nodes.set(p_iterator, op);
+		p_iterator=p_iterator+1;
+	}
 }
 
 void Expr_Tree_Builder::build_mod_operator(void)
@@ -76,10 +123,44 @@ void Expr_Tree_Builder::build_mod_operator(void)
   // using the node to construct the tree.
 
 	op=new Mod_Expr_Node();
+	if(!parenthesis_)
+	{
+		nodes.set(iterator, op);
+		iterator=iterator+1;
+	}
+	else
+	{
+		p_nodes.set(p_iterator, op);
+		p_iterator=p_iterator+1;
+	}
 }
 
-void Expr_Tree_Builder::build_parenthesis(void)
+void Expr_Tree_Builder::build_open_parenthesis(void)
 {
-	this->start_expression();
+	parenthesis_=true;
 }
 
+void Expr_Tree_Builder::build_close_parenthesis(void)
+{
+	parenthesis_=false;
+
+}
+
+void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> nodes, int iterator)
+{
+	if(iterator<2)
+	{
+
+	}
+	else if(nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence())
+	{
+		int check=iterator-1;
+		while(nodes[check-1]->get_precidence()<nodes[check]->get_precidence())
+		{
+			Binary_Expr_Node* temp=nodes[check-1];
+			nodes[check-1]=nodes[check];
+			nodes[check]=temp;
+			nodes[check-1]->set_left(nodes[check]->get_right());
+		}
+	}
+}

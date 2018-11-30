@@ -21,17 +21,17 @@ public:
 
 	virtual ~Expr_Node_Visitor(void);
 
-	virtual void Visit_Add_Node (const Add_Expr_Node & node)=0;
+	virtual void Visit_Add_Node (Add_Expr_Node & node)=0;
 
-	virtual void Visit_Sub_Node (const Sub_Expr_Node & node)=0;
+	virtual void Visit_Sub_Node (Sub_Expr_Node & node)=0;
 
-	virtual void Visit_Mul_Node (const Mul_Expr_Node & node)=0;
+	virtual void Visit_Mul_Node (Mul_Expr_Node & node)=0;
 
-	virtual void Visit_Div_Node (const Div_Expr_Node & node)=0;
+	virtual void Visit_Div_Node (Div_Expr_Node & node)=0;
 
-	virtual void Visit_Mod_Node (const Mod_Expr_Node & node)=0;
+	virtual void Visit_Mod_Node (Mod_Expr_Node & node)=0;
 
-	virtual int Visit_Num_Node (const Number_Expr_Node & node)=0;
+	virtual bool Visit_Num_Node (Number_Expr_Node & node)=0;
 };
 
 #endif

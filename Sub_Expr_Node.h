@@ -19,14 +19,16 @@ public:
 
 	virtual ~Sub_Expr_Node(void);
 
-	int evaluate (int num1, int num2);
+	int evaluate (int num1, int num2)const;
 
-	virtual void set_left(Expr_Node & node);
+	virtual void set_left(Expr_Node* node);
 
-	virtual void set_right(Expr_Node & node);
+	virtual void set_right(Expr_Node* node);
 
 	//It also says that Expr_Node_Visitor isn't defined when I included that class in Expr_Node which should be included in all of these classes.
 	virtual void accept(Expr_Node_Visitor & v);
+
+	virtual int get_precidence(void);
 
 };
 
