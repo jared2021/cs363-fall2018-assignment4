@@ -19,7 +19,7 @@ class Expr_Node_Visitor
 {
 public:
 
-	virtual ~Expr_Node_Visitor(void);
+	//virtual ~Expr_Node_Visitor(void);
 
 	virtual void Visit_Add_Node (Add_Expr_Node & node)=0;
 
