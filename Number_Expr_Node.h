@@ -16,9 +16,7 @@ public:
 
 	Number_Expr_Node(int num);
 
-	~Number_Expr_Node(void);
-
-	virtual int execute (void);
+	virtual ~Number_Expr_Node(void);
 
 	virtual void accept(Expr_Node_Visitor & v);
 
