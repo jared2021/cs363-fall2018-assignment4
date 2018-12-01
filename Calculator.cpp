@@ -55,7 +55,11 @@ int main()
 			}
 			else if(token=="(")
 			{
-				build->build_parenthesis();
+				build->build_open_parenthesis();
+			}
+			else if(token==")")
+			{
+				build->build_close_parenthesis();
 			}
 			else 
 			{

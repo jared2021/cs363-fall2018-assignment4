@@ -29,6 +29,7 @@ public:
 	virtual void build_open_parenthesis (void)=0;
 
 	virtual void build_close_parenthesis (void)=0;
+
 };
 
 #endif

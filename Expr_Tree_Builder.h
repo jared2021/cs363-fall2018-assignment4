@@ -18,8 +18,8 @@ public:
 
 	Expr_Tree_Builder (void);
 
-	virtual ~Expr_Tree_Builder (void);
-//trying to return an Expr_Node so I can use it to evaluate the tree in my Calculator.
+	~Expr_Tree_Builder (void);
+
 	virtual void start_expression (void);
 
 	virtual void build_number (int n);
@@ -37,8 +37,6 @@ public:
 	virtual void build_open_parenthesis(void);
 
 	virtual void build_close_parenthesis(void);
-
-	virtual void build_parenthesis(void);
 
 	virtual void check_precidence(Array <Binary_Expr_Node*> nodes, int iterator);
 

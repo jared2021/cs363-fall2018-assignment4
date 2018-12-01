@@ -31,8 +31,8 @@ LIBPREFIX     = lib
 LIBSUFFIX     = 
 GENFLAGS      = -O
 LDLIBS        = -ldl $(subst lib,-l,$(sort $(basename $(notdir $(wildcard /usr/lib/librt.so /lib/librt.so))))) -lpthread
-OBJS          = Eval_Expr_Tree$(OBJEXT) Binary_Expr_Node$(OBJEXT) Add_Expr_Node$(OBJEXT) Div_Expr_Node$(OBJEXT) Sub_Expr_Node$(OBJEXT) Mul_Expr_Node$(OBJEXT) Mod_Expr_Node$(OBJEXT) Number_Expr_Node$(OBJEXT) Expr_Tree_Builder$(OBJEXT) Calculator$(OBJEXT)
-SRC           = Eval_Expr_Tree.cpp Binary_Expr_Node.cpp Add_Expr_Node.cpp Div_Expr_Node.cpp Sub_Expr_Node.cpp Mul_Expr_Node.cpp Mod_Expr_Node.cpp Number_Expr_Node.cpp Expr_Tree_Builder.cpp Calculator.cpp
+OBJS          = Binary_Expr_Node$(OBJEXT) Add_Expr_Node$(OBJEXT) Div_Expr_Node$(OBJEXT) Sub_Expr_Node$(OBJEXT) Mul_Expr_Node$(OBJEXT) Mod_Expr_Node$(OBJEXT) Number_Expr_Node$(OBJEXT) Eval_Expr_Tree$(OBJEXT) Expr_Tree_Builder$(OBJEXT) Calculator$(OBJEXT)
+SRC           = Binary_Expr_Node.cpp Add_Expr_Node.cpp Div_Expr_Node.cpp Sub_Expr_Node.cpp Mul_Expr_Node.cpp Mod_Expr_Node.cpp Number_Expr_Node.cpp Eval_Expr_Tree.cpp Expr_Tree_Builder.cpp Calculator.cpp
 LINK.cc       = $(LD) $(LDFLAGS)
 EXPORTFLAGS   = 
 DEPLIBS       = $(foreach lib, , $(foreach libpath, ., $(wildcard $(libpath)/lib$(lib).a)))
@@ -49,9 +49,6 @@ $(BIN): $(OBJS) $(DEPLIBS)
 
 generated: $(GENERATED_DIRTY)
 	@-:
-
-Eval_Expr_Tree$(OBJEXT): Eval_Expr_Tree.cpp
-	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Eval_Expr_Tree.cpp
 
 Binary_Expr_Node$(OBJEXT): Binary_Expr_Node.cpp
 	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Binary_Expr_Node.cpp
@@ -73,6 +70,9 @@ Mod_Expr_Node$(OBJEXT): Mod_Expr_Node.cpp
 
 Number_Expr_Node$(OBJEXT): Number_Expr_Node.cpp
 	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Number_Expr_Node.cpp
+
+Eval_Expr_Tree$(OBJEXT): Eval_Expr_Tree.cpp
+	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Eval_Expr_Tree.cpp
 
 Expr_Tree_Builder$(OBJEXT): Expr_Tree_Builder.cpp
 	$(COMPILE.cc) $(EXPORTFLAGS) $(OUTPUT_OPTION) Expr_Tree_Builder.cpp
