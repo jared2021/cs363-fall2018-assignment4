@@ -28,7 +28,7 @@ int main()
 	{
 		//for some reason it is saying Expr_Tree_Builder is an abstract class so I cannot allocate it. 
 		Expr_Tree_Builder* build= new Expr_Tree_Builder();
-		Expr_Node* start=build->start_expression();
+		build->start_expression();
 		std::istringstream input(token);
 		while(!input.eof())
 		{
@@ -61,14 +61,14 @@ int main()
 			{
 				int placeholder;
 				// These two lines won't work for some reason.
-				std::istringsteam converter(token);
+				std::istringstream converter(token);
 				converter>>placeholder;
 				build->build_number(placeholder);
 			}
 		}
-		Expr_Node * expr_tree= start;
+		Binary_Expr_Node* start=build->get_root_node();
 		Eval_Expr_Tree eval;
-		expr_tree->accept(eval);
+		start->accept(eval);
 		int result= eval.result();
 		std::cout<<"Your answer is "<<result<<'\n';
 		std::cout<<"Please type in your equation or type 'QUIT' to exit the program."<<'\n';

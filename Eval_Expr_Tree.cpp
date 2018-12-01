@@ -36,6 +36,7 @@ void Eval_Expr_Tree::Visit_Add_Node(Add_Expr_Node & node)
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
 	node.set_key(node.evaluate(n1,n2));
+	(*this).result_=node.get_key();
 }
 
 void Eval_Expr_Tree::Visit_Sub_Node(Sub_Expr_Node & node)
@@ -52,6 +53,7 @@ void Eval_Expr_Tree::Visit_Sub_Node(Sub_Expr_Node & node)
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
 	node.set_key(node.evaluate(n1,n2));
+	(*this).result_=node.get_key();
 }
 
 void Eval_Expr_Tree::Visit_Mul_Node(Mul_Expr_Node & node)
@@ -68,6 +70,7 @@ void Eval_Expr_Tree::Visit_Mul_Node(Mul_Expr_Node & node)
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
 	node.set_key(node.evaluate(n1,n2));
+	(*this).result_=node.get_key();
 }
 
 void Eval_Expr_Tree::Visit_Div_Node(Div_Expr_Node & node)
@@ -83,6 +86,7 @@ void Eval_Expr_Tree::Visit_Div_Node(Div_Expr_Node & node)
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
 	node.set_key(node.evaluate(n1,n2));
+	(*this).result_=node.get_key();
 }
 
 void Eval_Expr_Tree::Visit_Mod_Node(Mod_Expr_Node & node)
@@ -99,6 +103,7 @@ void Eval_Expr_Tree::Visit_Mod_Node(Mod_Expr_Node & node)
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
 	node.set_key(node.evaluate(n1,n2));
+	(*this).result_=node.get_key();
 }
 
 bool Eval_Expr_Tree::Visit_Num_Node(Number_Expr_Node & node)

@@ -42,12 +42,14 @@ public:
 
 	virtual void check_precidence(Array <Binary_Expr_Node*> nodes, int iterator);
 
+	virtual Binary_Expr_Node* get_root_node(void);
+
 private:
 
 	Expr_Node* n1;
 	Binary_Expr_Node* op;
 	Array <Binary_Expr_Node*> nodes;
-	Array <Expr_Node*> p_nodes;
+	Array <Binary_Expr_Node*> p_nodes;
 	Stack <Expr_Node*> tree;
 	Stack <Expr_Node*> p_tree;
 	int iterator;

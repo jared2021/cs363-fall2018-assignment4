@@ -15,7 +15,7 @@ public:
 
 	Binary_Expr_Node (void);
 
-	Binary_Expr_Node (int p);
+	Binary_Expr_Node (int p, bool t);
 
 	virtual ~Binary_Expr_Node (void);
 
@@ -27,15 +27,19 @@ public:
 
 	virtual void set_left(Expr_Node* node)=0;
 
-	virtual Expr_Node* get_left(void);
+	virtual Expr_Node* get_left(void)=0;
 
 	virtual void set_right(Expr_Node* node)=0;
 
-	virtual Expr_Node* get_right(void);
+	virtual Expr_Node* get_right(void)=0;
 
 	virtual void accept(Expr_Node_Visitor & v)=0;
 
 	virtual int get_precidence(void)=0;
+
+	virtual bool get_parenthesis(void)=0;
+
+	virtual void set_parenthesis(bool t)=0;
 
 	Expr_Node * right_;
 
@@ -44,6 +48,10 @@ public:
 protected:
 
 	int precidence_;
+
+	bool parenthesis_;
+
+	Binary_Expr_Node* temp;
 };
 
 #endif

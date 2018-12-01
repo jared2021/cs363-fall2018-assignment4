@@ -57,11 +57,14 @@ void Expr_Tree_Builder::build_add_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
+		(*this).check_precidence(nodes, iterator);
 	}
 	else
 	{
+		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
+		(*this).check_precidence(p_nodes, p_iterator);
 	}
 }
 void Expr_Tree_Builder::build_sub_operator(void)
@@ -74,11 +77,14 @@ void Expr_Tree_Builder::build_sub_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
+		(*this).check_precidence(nodes, iterator);
 	}
 	else
 	{
+		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator +1;
+		(*this).check_precidence(p_nodes, p_iterator);
 	}
 }
 
@@ -92,11 +98,14 @@ void Expr_Tree_Builder::build_mul_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
+		(*this).check_precidence(nodes, iterator);
 	}
 	else
 	{
+		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator +1;
+		(*this).check_precidence(p_nodes, p_iterator);
 	}
 }
 void Expr_Tree_Builder::build_div_operator(void)
@@ -109,11 +118,14 @@ void Expr_Tree_Builder::build_div_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
+		(*this).check_precidence(nodes, iterator);
 	}
 	else
 	{
+		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
+		(*this).check_precidence(p_nodes, p_iterator);
 	}
 }
 
@@ -127,11 +139,14 @@ void Expr_Tree_Builder::build_mod_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
+		(*this).check_precidence(nodes, iterator);
 	}
 	else
 	{
+		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
+		(*this).check_precidence(p_nodes, p_iterator);
 	}
 }
 
@@ -143,24 +158,36 @@ void Expr_Tree_Builder::build_open_parenthesis(void)
 void Expr_Tree_Builder::build_close_parenthesis(void)
 {
 	parenthesis_=false;
-
+	int begin=p_iterator;
+	int end=iterator;
+	for(int z=0;z<end; z++)
+	{
+		p_nodes[begin]=nodes[z];
+		p_nodes[begin-1]->set_left(p_nodes[begin]->get_right());
+		p_nodes[begin]->set_right(p_nodes[begin-1]);
+		begin=begin+1;
+	}
+	nodes=p_nodes;
+	(*this).check_precidence(nodes, iterator);
 }
 
 void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> nodes, int iterator)
 {
-	if(iterator<2)
-	{
-
-	}
-	else if(nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence())
+	if(nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true&&iterator>1)
 	{
 		int check=iterator-1;
-		while(nodes[check-1]->get_precidence()<nodes[check]->get_precidence())
+		while(nodes[check-1]->get_precidence()<nodes[check]->get_precidence()&&nodes[check-1]->get_parenthesis()!=true&&check!=0)
 		{
 			Binary_Expr_Node* temp=nodes[check-1];
 			nodes[check-1]=nodes[check];
 			nodes[check]=temp;
 			nodes[check-1]->set_left(nodes[check]->get_right());
+			nodes[check]->set_left(nodes[check-1]);
 		}
 	}
+}
+
+Binary_Expr_Node* Expr_Tree_Builder::get_root_node(void)
+{
+	return nodes[iterator-1];
 }

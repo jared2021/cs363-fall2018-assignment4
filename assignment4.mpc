@@ -36,4 +36,10 @@ project(assignment4){
 		Expr_Tree_Builder.cpp
 		Calculator.cpp
 	}
+
+	Template_Files{
+		Array_Base.cpp
+		Array.cpp
+		Stack.cpp
+	}
 }

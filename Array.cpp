@@ -70,7 +70,7 @@ const Array <T> & Array <T>::operator = (const Array & rhs)
 	{
 		for(int i=0;i<(*this).size();++i)
 		{
-			(*this).get(i)=(rhs).get(i);
+			(*this).data(i)=(rhs).data(i);
 		}
 		return *this;
 	}
