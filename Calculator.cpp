@@ -32,12 +32,9 @@ int main()
 		while(!input.eof())
 		{
 			input>>token;
-			std::cout<<token<<'\n';
 			if(token=="+")
 			{
-				std::cout<<"Creating add node."<<'\n';
 				build->build_add_operator();
-				std::cout<<"Add node created."<<'\n';
 			}
 			else if(token=="-")
 			{
@@ -69,12 +66,10 @@ int main()
 				std::istringstream converter(token);
 				converter>>placeholder;
 				build->build_number(placeholder);
-				std::cout<<"Created number node."<<'\n';
 			}
 		}
 		Binary_Expr_Node* start=build->get_root_node();
 		Eval_Expr_Tree eval;
-		std::cout<<"Creating eval."<<'\n';
 		start->accept(eval);
 		int result= eval.result();
 		std::cout<<"Your answer is "<<result<<'\n';

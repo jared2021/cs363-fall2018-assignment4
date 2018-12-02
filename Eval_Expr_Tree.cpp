@@ -33,17 +33,11 @@ void Eval_Expr_Tree::Visit_Add_Node(Add_Expr_Node & node)
   // RESPONSE: Now visiting left and right node via the accept method.
   
 	node.left_->accept(*this);
-	std::cout<<"Visited left node."<<'\n';
 	int n1=node.left_->get_key();
-	std::cout<<"Getting left node key."<<'\n';
 	node.right_->accept(*this);
-	std::cout<<"Visited right node."<<'\n';
 	int n2=node.right_->get_key();
-	std::cout<<"Getting right node key."<<'\n';
 	node.set_key(node.evaluate(n1,n2));
-	std::cout<<"Sets this nodes key to left node key + right node key."<<'\n';
 	(*this).result_=node.get_key();
-	std::cout<<"Sets visitors result to this nodes key."<<'\n';
 }
 
 void Eval_Expr_Tree::Visit_Sub_Node(Sub_Expr_Node & node)
@@ -73,17 +67,11 @@ void Eval_Expr_Tree::Visit_Mul_Node(Mul_Expr_Node & node)
   // RESPONSE: Now visiting left and right node via the accept method.
   
 	node.left_->accept(*this);
-	std::cout<<"Visit left node M."<<'\n';
 	int n1=node.left_->get_key();
-	std::cout<<"Get left node key M."<<'\n';
 	node.right_->accept(*this);
-	std::cout<<"Visit right node M."<<'\n';
 	int n2=node.right_->get_key();
-	std::cout<<"Get right node key M."<<'\n';
 	node.set_key(node.evaluate(n1,n2));
-	std::cout<<"Set this nodes key to left node key * right node key."<<'\n';
 	(*this).result_=node.get_key();
-	std::cout<<"Set this visitor result to this nodes key M."<<'\n';
 }
 
 void Eval_Expr_Tree::Visit_Div_Node(Div_Expr_Node & node)
