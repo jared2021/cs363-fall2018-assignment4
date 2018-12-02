@@ -14,7 +14,8 @@
 
 Expr_Tree_Builder::Expr_Tree_Builder (void)
 :iterator(0),
-p_iterator(0)
+p_iterator(0),
+parenthesis_(false)
 {
 
 }

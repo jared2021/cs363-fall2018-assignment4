@@ -12,7 +12,7 @@ class Expr_Builder
 {
 public:
 
-	virtual void start_expression (void);
+	virtual void start_expression (void)=0;
 
 	virtual void build_number (int n)=0;
 
