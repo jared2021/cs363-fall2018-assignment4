@@ -26,16 +26,19 @@ int main()
 	std::getline(std::cin,infix);
 	while(infix!=exit)
 	{
-		//for some reason it is saying Expr_Tree_Builder is an abstract class so I cannot allocate it. 
+		std::cout<<"Start evaluating user input."<<'\n';
 		Expr_Tree_Builder* build= new Expr_Tree_Builder();
 		build->start_expression();
 		std::istringstream input(token);
 		while(!input.eof())
 		{
+			std::cout<<"Inside while loop."<<'\n';
 			input>>token;
 			if(token=="+")
 			{
+				std::cout<<"Creating add node."<<'\n';
 				build->build_add_operator();
+				std::cout<<"Add node created."<<'\n';
 			}
 			else if(token=="-")
 			{
@@ -68,8 +71,10 @@ int main()
 				std::istringstream converter(token);
 				converter>>placeholder;
 				build->build_number(placeholder);
+				std::cout<<"Created number node."<<'\n';
 			}
 		}
+		std::cout<<"Outside while loop."<<'\n';
 		Binary_Expr_Node* start=build->get_root_node();
 		Eval_Expr_Tree eval;
 		start->accept(eval);

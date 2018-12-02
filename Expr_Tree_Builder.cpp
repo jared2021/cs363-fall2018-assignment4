@@ -38,12 +38,15 @@ void Expr_Tree_Builder::build_number (int n)
   // RESPONSE Now creating and using nodes to construct the tree.  
 	n1=new Number_Expr_Node(n);
 	tree.push(n1);
+	std::cout<<"Pushing number onto the stack."<<'\n';
 	if(tree.size()==2)
 	{
+		std::cout<<"Inside number if loop."<<'\n';
 		nodes[iterator-1]->set_right(tree.pop());
 		nodes[iterator-1]->set_left(tree.pop());
 		tree.push(nodes[iterator-1]);
 	}
+	std::cout<<"Made it around/through the if loop."<<'\n';
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
@@ -52,8 +55,10 @@ void Expr_Tree_Builder::build_add_operator(void)
   // using the node to construct the tree.
   // RESPONSE Now creating and using nodes to construct the tree.
 	op=new Add_Expr_Node();
+	std::cout<<"Add node created (inside build_add_operator)."<<'\n';
 	if(!parenthesis_)
 	{
+		std::cout<<"Inside if loop for parenthesis."<<'\n';
 		nodes.set(iterator, op);
 		iterator=iterator+1;
 		(*this).check_precidence(nodes, iterator);
