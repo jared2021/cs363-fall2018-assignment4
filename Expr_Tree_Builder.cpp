@@ -181,7 +181,7 @@ void Expr_Tree_Builder::build_close_parenthesis(void)
 void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> &nodes, int iterator)
 {
 	std::cout<<"Checking precidence."<<'\n';
-	if(nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true&&iterator>1)
+	if(iterator>1&&nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true)
 	{
 		int check=iterator-1;
 		while(nodes[check-1]->get_precidence()<nodes[check]->get_precidence()&&nodes[check-1]->get_parenthesis()!=true&&check!=0)
