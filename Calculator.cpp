@@ -68,7 +68,6 @@ int main()
 			else 
 			{
 				int placeholder;
-				// These two lines won't work for some reason.
 				std::istringstream converter(token);
 				converter>>placeholder;
 				build->build_number(placeholder);

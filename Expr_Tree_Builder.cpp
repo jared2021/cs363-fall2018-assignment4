@@ -71,7 +71,7 @@ void Expr_Tree_Builder::build_add_operator(void)
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
-		(*this).check_precidence(p_nodes, p_iterator);
+		check_precidence(p_nodes, p_iterator);
 	}
 }
 void Expr_Tree_Builder::build_sub_operator(void)
@@ -84,14 +84,14 @@ void Expr_Tree_Builder::build_sub_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
-		(*this).check_precidence(nodes, iterator);
+		check_precidence(nodes, iterator);
 	}
 	else
 	{
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator +1;
-		(*this).check_precidence(p_nodes, p_iterator);
+		check_precidence(p_nodes, p_iterator);
 	}
 }
 
@@ -105,14 +105,14 @@ void Expr_Tree_Builder::build_mul_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
-		(*this).check_precidence(nodes, iterator);
+		check_precidence(nodes, iterator);
 	}
 	else
 	{
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator +1;
-		(*this).check_precidence(p_nodes, p_iterator);
+		check_precidence(p_nodes, p_iterator);
 	}
 }
 void Expr_Tree_Builder::build_div_operator(void)
@@ -125,14 +125,14 @@ void Expr_Tree_Builder::build_div_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
-		(*this).check_precidence(nodes, iterator);
+		check_precidence(nodes, iterator);
 	}
 	else
 	{
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
-		(*this).check_precidence(p_nodes, p_iterator);
+		check_precidence(p_nodes, p_iterator);
 	}
 }
 
@@ -146,14 +146,14 @@ void Expr_Tree_Builder::build_mod_operator(void)
 	{
 		nodes.set(iterator, op);
 		iterator=iterator+1;
-		(*this).check_precidence(nodes, iterator);
+		check_precidence(nodes, iterator);
 	}
 	else
 	{
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
 		p_iterator=p_iterator+1;
-		(*this).check_precidence(p_nodes, p_iterator);
+		check_precidence(p_nodes, p_iterator);
 	}
 }
 
