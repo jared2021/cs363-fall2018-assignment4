@@ -183,9 +183,11 @@ void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> &nodes, int i
 	std::cout<<"Checking precidence."<<'\n';
 	if(iterator>1&&nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true)
 	{
+		std::cout<<"Inside if statement (check_precidence)."<<'\n';
 		int check=iterator-1;
 		while(nodes[check-1]->get_precidence()<nodes[check]->get_precidence()&&nodes[check-1]->get_parenthesis()!=true&&check!=0)
 		{
+			std::cout<<"Inside while loop (check_precidence)."<<'\n';
 			Binary_Expr_Node* temp=nodes[check-1];
 			nodes[check-1]=nodes[check];
 			nodes[check]=temp;

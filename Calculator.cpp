@@ -31,9 +31,7 @@ int main()
 		std::istringstream input(infix);
 		while(!input.eof())
 		{
-			std::cout<<"Inside while loop."<<'\n';
 			input>>token;
-			//token is empty for some reason
 			std::cout<<token<<'\n';
 			if(token=="+")
 			{
@@ -74,9 +72,9 @@ int main()
 				std::cout<<"Created number node."<<'\n';
 			}
 		}
-		std::cout<<"Outside while loop."<<'\n';
 		Binary_Expr_Node* start=build->get_root_node();
 		Eval_Expr_Tree eval;
+		std::cout<<"Creating eval."<<'\n';
 		start->accept(eval);
 		int result= eval.result();
 		std::cout<<"Your answer is "<<result<<'\n';
