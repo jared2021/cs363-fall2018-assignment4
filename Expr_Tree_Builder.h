@@ -38,7 +38,7 @@ public:
 
 	virtual void build_close_parenthesis(void);
 
-	virtual void check_precidence(Array <Binary_Expr_Node*> nodes, int iterator);
+	virtual void check_precidence(Array <Binary_Expr_Node*> &nodes, int iterator);
 
 	virtual Binary_Expr_Node* get_root_node(void);
 

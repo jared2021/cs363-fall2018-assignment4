@@ -26,11 +26,9 @@ int main()
 	std::getline(std::cin,infix);
 	while(infix!=exit)
 	{
-		std::cout<<"Start evaluating user input."<<'\n';
 		Expr_Tree_Builder* build= new Expr_Tree_Builder();
 		build->start_expression();
 		std::istringstream input(infix);
-		std::cout<<"istringstream input(token)"<<token<<'\n';
 		while(!input.eof())
 		{
 			std::cout<<"Inside while loop."<<'\n';

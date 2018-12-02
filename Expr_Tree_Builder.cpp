@@ -60,8 +60,11 @@ void Expr_Tree_Builder::build_add_operator(void)
 	{
 		std::cout<<"Inside if loop for parenthesis."<<'\n';
 		nodes.set(iterator, op);
+		std::cout<<"Setting add node in array."<<'\n';
 		iterator=iterator+1;
-		(*this).check_precidence(nodes, iterator);
+		std::cout<<"Incrimenting iterator."<<'\n';
+		check_precidence(nodes, iterator);
+		std::cout<<"Checked precidence."<<'\n';
 	}
 	else
 	{
@@ -175,8 +178,9 @@ void Expr_Tree_Builder::build_close_parenthesis(void)
 	(*this).check_precidence(nodes, iterator);
 }
 
-void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> nodes, int iterator)
+void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> &nodes, int iterator)
 {
+	std::cout<<"Checking precidence."<<'\n';
 	if(nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true&&iterator>1)
 	{
 		int check=iterator-1;
