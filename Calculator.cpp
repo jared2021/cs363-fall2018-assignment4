@@ -34,6 +34,8 @@ int main()
 		{
 			std::cout<<"Inside while loop."<<'\n';
 			input>>token;
+			//token is empty for some reason
+			std::cout<<token<<'\n';
 			if(token=="+")
 			{
 				std::cout<<"Creating add node."<<'\n';
