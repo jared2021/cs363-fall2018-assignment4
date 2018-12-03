@@ -174,6 +174,9 @@ void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> &nodes, int i
 			nodes[check-1]->set_left(nodes[check]->get_right());
 			nodes[check]->set_right(nodes[check]->get_left());
 			nodes[check]->set_left(nodes[check-1]);
+			Expr_Node* rotate=nodes[check]->get_left();
+			nodes[check]->set_left(nodes[check]->get_right());
+			nodes[check]->set_right(rotate);
 			check=check-1;
 		}
 	}
