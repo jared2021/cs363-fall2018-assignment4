@@ -1,0 +1,18 @@
+Generating 'make' output using default input
+Generation Time: 0s
+make[1]: Entering directory `/home/hilljh/cs363-sandbox/assignment4/jascho/cs363-fall2018-assignment4'
+rm -rf Binary_Expr_Node.o Add_Expr_Node.o Div_Expr_Node.o Sub_Expr_Node.o Mul_Expr_Node.o Mod_Expr_Node.o Number_Expr_Node.o Eval_Expr_Tree.o Expr_Tree_Builder.o Calculator.o
+make[1]: Leaving directory `/home/hilljh/cs363-sandbox/assignment4/jascho/cs363-fall2018-assignment4'
+make[1]: Entering directory `/home/hilljh/cs363-sandbox/assignment4/jascho/cs363-fall2018-assignment4'
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Binary_Expr_Node.o" Binary_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Add_Expr_Node.o" Add_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Div_Expr_Node.o" Div_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Sub_Expr_Node.o" Sub_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Mul_Expr_Node.o" Mul_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Mod_Expr_Node.o" Mod_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Number_Expr_Node.o" Number_Expr_Node.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Eval_Expr_Tree.o" Eval_Expr_Tree.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Expr_Tree_Builder.o" Expr_Tree_Builder.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -c  -o "Calculator.o" Calculator.cpp
+g++  -fPIC -O -std=c++11 -D_REENTRANT -L"." Binary_Expr_Node.o Add_Expr_Node.o Div_Expr_Node.o Sub_Expr_Node.o Mul_Expr_Node.o Mod_Expr_Node.o Number_Expr_Node.o Eval_Expr_Tree.o Expr_Tree_Builder.o Calculator.o -ldl -lrt -lpthread -o "assignment4"
+make[1]: Leaving directory `/home/hilljh/cs363-sandbox/assignment4/jascho/cs363-fall2018-assignment4'
