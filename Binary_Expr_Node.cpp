@@ -20,7 +20,8 @@ Binary_Expr_Node::Binary_Expr_Node(int p, bool t)
 
 Binary_Expr_Node::~Binary_Expr_Node(void)
 {
-
+	delete left_;
+	delete right_;
 }
 
 void Binary_Expr_Node::set_key(int key)

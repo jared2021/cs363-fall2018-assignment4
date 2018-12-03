@@ -1,143 +1,161 @@
-==170978== Memcheck, a memory error detector
-==170978== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==170978== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==170978== Command: ./assignment4
-==170978== Parent PID: 170226
-==170978== 
-==170978== Conditional jump or move depends on uninitialised value(s)
-==170978==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Conditional jump or move depends on uninitialised value(s)
-==170978==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402770: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Conditional jump or move depends on uninitialised value(s)
-==170978==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40277C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Conditional jump or move depends on uninitialised value(s)
-==170978==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402788: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid write of size 8
-==170978==    at 0x402FD0: Array_Base<Expr_Node*>::set(unsigned long, Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40338E: Stack<Expr_Node*>::push(Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402B48: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40277C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid write of size 8
-==170978==    at 0x402EAC: Array_Base<Binary_Expr_Node*>::set(unsigned long, Binary_Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402361: Expr_Tree_Builder::build_add_operator() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40379A: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x402BCF: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x403242: Stack<Expr_Node*>::pop() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402BE1: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a3c8 is 8 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40277C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x402BFF: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x403242: Stack<Expr_Node*>::pop() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402C11: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40277C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x402C2F: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid write of size 8
-==170978==    at 0x402FD0: Array_Base<Expr_Node*>::set(unsigned long, Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40338E: Stack<Expr_Node*>::push(Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402C39: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403B16: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402EF0: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402F37: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x40277C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== Invalid read of size 8
-==170978==    at 0x4029A5: Expr_Tree_Builder::get_root_node() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403C73: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
-==170978==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
-==170978==    by 0x402DF4: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x402764: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978==    by 0x403F03: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== 
-==170978== HEAP SUMMARY:
-==170978==     in use at exit: 280 bytes in 8 blocks
-==170978==   total heap usage: 17 allocs, 9 frees, 532 bytes allocated
-==170978== 
-==170978== 280 (200 direct, 80 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 7
-==170978==    at 0x4C2A1E3: operator new(unsigned long) (vg_replace_malloc.c:334)
-==170978==    by 0x403EF8: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
-==170978== 
-==170978== LEAK SUMMARY:
-==170978==    definitely lost: 200 bytes in 1 blocks
-==170978==    indirectly lost: 80 bytes in 7 blocks
-==170978==      possibly lost: 0 bytes in 0 blocks
-==170978==    still reachable: 0 bytes in 0 blocks
-==170978==         suppressed: 0 bytes in 0 blocks
-==170978== 
-==170978== For counts of detected and suppressed errors, rerun with: -v
-==170978== Use --track-origins=yes to see where uninitialised values come from
-==170978== ERROR SUMMARY: 15 errors from 14 contexts (suppressed: 0 from 0)
+==122049== Memcheck, a memory error detector
+==122049== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==122049== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==122049== Command: ./assignment4
+==122049== Parent PID: 105478
+==122049== 
+==122049== Conditional jump or move depends on uninitialised value(s)
+==122049==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Conditional jump or move depends on uninitialised value(s)
+==122049==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402784: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Conditional jump or move depends on uninitialised value(s)
+==122049==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402790: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Conditional jump or move depends on uninitialised value(s)
+==122049==    at 0x4C2A81E: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40279C: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid write of size 8
+==122049==    at 0x403606: Array_Base<Expr_Node*>::set(unsigned long, Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4039C4: Stack<Expr_Node*>::push(Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402DB0: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402790: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid write of size 8
+==122049==    at 0x4034E2: Array_Base<Binary_Expr_Node*>::set(unsigned long, Binary_Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402469: Expr_Tree_Builder::build_add_operator() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x403D6A: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402E05: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x403878: Stack<Expr_Node*>::pop() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402E16: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a3c8 is 8 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402790: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402E34: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402EA2: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x403878: Stack<Expr_Node*>::pop() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402EB3: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402790: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402ED1: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402F42: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid write of size 8
+==122049==    at 0x403606: Array_Base<Expr_Node*>::set(unsigned long, Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4039C4: Stack<Expr_Node*>::push(Expr_Node*) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402F4C: Expr_Tree_Builder::build_number(int) (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x4040AC: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a3c0 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x403526: Array<Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40356D: Stack<Expr_Node*>::Stack() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402790: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== Invalid read of size 8
+==122049==    at 0x402A23: Expr_Tree_Builder::get_root_node() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40419D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==  Address 0x604a340 is 0 bytes after a block of size 0 alloc'd
+==122049==    at 0x4C2A888: operator new[](unsigned long) (vg_replace_malloc.c:423)
+==122049==    by 0x40342A: Array<Binary_Expr_Node*>::Array() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x402778: Expr_Tree_Builder::Expr_Tree_Builder() (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049==    by 0x40442D: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== 
+==122049== HEAP SUMMARY:
+==122049==     in use at exit: 280 bytes in 8 blocks
+==122049==   total heap usage: 17 allocs, 9 frees, 532 bytes allocated
+==122049== 
+==122049== 280 (200 direct, 80 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 7
+==122049==    at 0x4C2A1E3: operator new(unsigned long) (vg_replace_malloc.c:334)
+==122049==    by 0x404422: main (in /home/jascho/cs363-fall2018-assignment4/assignment4)
+==122049== 
+==122049== LEAK SUMMARY:
+==122049==    definitely lost: 200 bytes in 1 blocks
+==122049==    indirectly lost: 80 bytes in 7 blocks
+==122049==      possibly lost: 0 bytes in 0 blocks
+==122049==    still reachable: 0 bytes in 0 blocks
+==122049==         suppressed: 0 bytes in 0 blocks
+==122049== 
+==122049== For counts of detected and suppressed errors, rerun with: -v
+==122049== Use --track-origins=yes to see where uninitialised values come from
+==122049== ERROR SUMMARY: 17 errors from 16 contexts (suppressed: 0 from 0)

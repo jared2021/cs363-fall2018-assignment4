@@ -22,7 +22,7 @@ parenthesis_(false)
 
 Expr_Tree_Builder::~Expr_Tree_Builder(void)
 {
-
+	delete get_root_node();
 }
 
 void Expr_Tree_Builder::start_expression (void)
@@ -37,14 +37,28 @@ void Expr_Tree_Builder::build_number (int n)
   // using the node to construct the tree.
   // RESPONSE Now creating and using nodes to construct the tree.  
 	n1=new Number_Expr_Node(n);
-	tree.push(n1);
-	if(tree.size()==2)
+	if(!parenthesis_)
 	{
-		nodes[iterator-1]->set_right(tree.pop());
-		nodes[iterator-1]->set_left(tree.pop());
-		tree.push(nodes[iterator-1]);
+		tree.push(n1);
+		if(tree.size()==2)
+		{
+			nodes[iterator-1]->set_right(tree.pop());
+			nodes[iterator-1]->set_left(tree.pop());
+			tree.push(nodes[iterator-1]);
+		}
+		check_precidence(nodes,iterator);
 	}
-	check_precidence(nodes, iterator);
+	else
+	{
+		p_tree.push(n1);
+		if(p_tree.size()==2)
+		{
+			p_nodes[p_iterator-1]->set_right(p_tree.pop());
+			p_nodes[p_iterator-1]->set_left(p_tree.pop());
+			p_tree.push(p_nodes[p_iterator-1]);
+		}
+		check_precidence(p_nodes,p_iterator);
+	}
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
@@ -62,6 +76,7 @@ void Expr_Tree_Builder::build_add_operator(void)
 	{
 		op->set_parenthesis(true);
 		p_nodes.set(p_iterator, op);
+		std::cout<<"Setting an add node to slot "<<p_iterator<<" on the array p_nodes."<<'\n';
 		p_iterator=p_iterator+1;
 	}
 }
@@ -154,7 +169,10 @@ void Expr_Tree_Builder::build_close_parenthesis(void)
 	{
 		p_nodes[begin]=nodes[z];
 		p_nodes[begin-1]->set_left(p_nodes[begin]->get_right());
-		p_nodes[begin]->set_right(p_nodes[begin-1]);
+		std::cout<<"Node key 1 is "<<p_nodes[begin-1]->left_->get_key()<<'\n';
+		p_nodes[begin]->set_right(p_nodes[begin]->get_left());
+		std::cout<<"Node key 2 is "<<p_nodes[begin]->right_->get_key()<<'\n';
+		p_nodes[begin]->set_left(p_nodes[begin-1]);
 		begin=begin+1;
 	}
 	nodes=p_nodes;

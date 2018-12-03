@@ -11,7 +11,6 @@
 #include "Mod_Expr_Node.h"
 #include "Number_Expr_Node.h"
 #include "Eval_Expr_Tree.h"
-#include <iostream>
 
 Eval_Expr_Tree::Eval_Expr_Tree(void)
 {
@@ -65,7 +64,6 @@ void Eval_Expr_Tree::Visit_Mul_Node(Mul_Expr_Node & node)
   // accept method to correctly implement the visitor pattern.
   // (e.g., left->accept (*this))
   // RESPONSE: Now visiting left and right node via the accept method.
-  
 	node.left_->accept(*this);
 	int n1=node.left_->get_key();
 	node.right_->accept(*this);
