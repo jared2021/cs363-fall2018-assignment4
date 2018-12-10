@@ -11,7 +11,7 @@
 #include "Mod_Expr_Node.h"
 #include "Number_Expr_Node.h"
 #include "Eval_Expr_Tree.h"
-#include <iostream>
+
 Eval_Expr_Tree::Eval_Expr_Tree(void)
 {
 
@@ -33,12 +33,9 @@ void Eval_Expr_Tree::Visit_Add_Node(Add_Expr_Node & node)
   
 	node.left_->accept(*this);
 	int n1=node.left_->get_key();
-	std::cout<<n1<<'\n';
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
-	std::cout<<n2<<'\n';
 	node.set_key(node.evaluate(n1,n2));
-	std::cout<<node.get_key()<<'\n';
 	(*this).result_=node.get_key();
 }
 
@@ -69,12 +66,9 @@ void Eval_Expr_Tree::Visit_Mul_Node(Mul_Expr_Node & node)
   // RESPONSE: Now visiting left and right node via the accept method.
 	node.left_->accept(*this);
 	int n1=node.left_->get_key();
-	std::cout<<n1<<'\n';
 	node.right_->accept(*this);
 	int n2=node.right_->get_key();
-	std::cout<<n2<<'\n';
 	node.set_key(node.evaluate(n1,n2));
-	std::cout<<node.get_key();
 	(*this).result_=node.get_key();
 }
 

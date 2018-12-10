@@ -43,8 +43,8 @@ void Expr_Tree_Builder::build_number (int n)
 		nodes[iterator-1]->set_right(tree.pop());
 		nodes[iterator-1]->set_left(tree.pop());
 		tree.push(nodes[iterator-1]);
-		check_precidence(nodes,iterator);
 	}
+	check_precidence(nodes,iterator);
 }
 
 void Expr_Tree_Builder::build_add_operator(void)
@@ -56,7 +56,6 @@ void Expr_Tree_Builder::build_add_operator(void)
 	if(parenthesis_)
 	{
 		op->set_parenthesis(true);
-		std::cout<<"Setting node parenthesis to true."<<'\n';
 	}
 	nodes.set(iterator, op);
 	iterator=iterator+1;
@@ -119,38 +118,22 @@ void Expr_Tree_Builder::build_mod_operator(void)
 
 void Expr_Tree_Builder::build_open_parenthesis(void)
 {
-	std::cout<<"Parenethesis equals true."<<'\n';
 	parenthesis_=true;
 }
 
 void Expr_Tree_Builder::build_close_parenthesis(void)
 {
 	parenthesis_=false;
-	std::cout<<"Changing parenthesis to false."<<'\n';
-	int end=iterator;
-	for(int z=end;z<=0; z--)
-	{
-		if(nodes[z-1]->get_parenthesis()==false&&nodes[z]->get_parenthesis()==true)
-		{
-			std::cout<<"inside if loop"<<'\n';
-			temp=nodes[z];
-			nodes[z]=nodes[z-1];
-			nodes[z-1]=temp;
-			nodes[z]->set_left(nodes[z-1]->get_right());
-			nodes[z-1]->set_right(nodes[z]);
-		}
-	}
 	check_precidence(nodes, iterator);
 }
 
 void Expr_Tree_Builder::check_precidence(Array <Binary_Expr_Node*> &nodes, int iterator)
 {
-	if(iterator>1&&nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true)
+	if(iterator>1&&nodes[iterator-2]->get_precidence()<nodes[iterator-1]->get_precidence()&&nodes[iterator-1]->get_parenthesis()!=true||iterator>1&&nodes[iterator-2]->get_parenthesis()<nodes[iterator-1]->get_parenthesis())
 	{
 		int check=iterator-1;
-		while(check!=0&&nodes[check-1]->get_precidence()<nodes[check]->get_precidence()&&nodes[check-1]->get_parenthesis()!=true)
+		while(check!=0&&nodes[check-1]->get_precidence()<nodes[check]->get_precidence()&&nodes[check-1]->get_parenthesis()!=true||check!=0&&nodes[check-1]->get_parenthesis()<nodes[check]->get_parenthesis())
 		{
-			std::cout<<"Checking precidence."<<'\n';
 			temp=nodes[check-1];
 			nodes[check-1]=nodes[check];
 			nodes[check]=temp;
