@@ -46,6 +46,7 @@ private:
 
 	Expr_Node* n1;
 	Binary_Expr_Node* op;
+	Binary_Expr_Node* temp;
 	Array <Binary_Expr_Node*> nodes;
 	Array <Binary_Expr_Node*> p_nodes;
 	Stack <Expr_Node*> tree;

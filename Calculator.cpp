@@ -32,6 +32,7 @@ int main()
 		while(!input.eof())
 		{
 			input>>token;
+			std::cout<<token<<'\n';
 			if(token=="+")
 			{
 				build->build_add_operator();
