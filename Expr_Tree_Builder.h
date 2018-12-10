@@ -48,11 +48,8 @@ private:
 	Binary_Expr_Node* op;
 	Binary_Expr_Node* temp;
 	Array <Binary_Expr_Node*> nodes;
-	Array <Binary_Expr_Node*> p_nodes;
 	Stack <Expr_Node*> tree;
-	Stack <Expr_Node*> p_tree;
 	int iterator;
-	int p_iterator;
 	bool parenthesis_;
 };
 
