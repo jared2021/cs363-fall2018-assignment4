@@ -33,7 +33,7 @@ project(assignment4){
 		Number_Expr_Node.cpp
 		Eval_Expr_Tree.cpp
 		Expr_Tree_Builder.cpp
-		Calculator.cpp
+		Calculator_v2.cpp
 	}
 
 	Template_Files{
