@@ -1,2 +1,13 @@
-5 + 4
+5 + 4 - 3
 QUIT
+
+Calculator assignment 3
+attempt 1 time: 0.001s
+attempt 2 (changing number to be checked first) time: 0.003s
+attempt 3 (changing precidence return type to void) time: 0.002s
+
+Calculator assignment 4
+attempt 1 time: 0.002s
+attempt 2 (changing number to be checked first) time:0.001s
+attempt 3 (split if statements for checking precidence and checking parenthesis) time :0.003s
+attempt 4 (switched split if statements) time:0.002s
