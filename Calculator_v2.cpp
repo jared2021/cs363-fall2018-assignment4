@@ -60,7 +60,7 @@ int main()
 			{
 				build->build_close_parenthesis();
 			}
-			else 
+			else
 			{
 				int placeholder;
 				std::istringstream converter(token);
